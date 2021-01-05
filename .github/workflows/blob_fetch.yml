@@ -1,8 +1,14 @@
-- name: Download file from azure
-  on: workflow_dispatch
-  uses: ulaval/azure-blob-copy-action@v1
-  with:
-    action: download
-    connection_string: ${{ secrets.CONNECTION_STRING }}
-    container_name: $web
-    local_directory: ./results.json
+name: Download file from azure
+on: workflow_dispatch
+jobs: 
+  fetch_blob:
+     name: Download file from azure
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v1
+       - uses: ulaval/azure-blob-copy-action@v1
+         with:
+           action: download
+           connection_string: ${{ secrets.CONNECTION_STRING }}
+           container_name: $web
+           local_directory: ./results.json
