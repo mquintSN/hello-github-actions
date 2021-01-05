@@ -1,0 +1,8 @@
+- name: Download file from azure
+  on: workflow_dispatch
+  uses: ulaval/azure-blob-copy-action@v1
+  with:
+    action: download
+    connection_string: ${{ secrets.CONNECTION_STRING }}
+    container_name: $web
+    local_directory: ./results.json
