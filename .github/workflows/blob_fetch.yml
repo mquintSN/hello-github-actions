@@ -1,5 +1,5 @@
 name: Download file from azure
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 jobs: 
   fetch_blob:
      name: Download file from azure
@@ -7,8 +7,12 @@ jobs:
      steps:
        - uses: actions/checkout@v1
        - uses: ulaval/azure-blob-copy-action@v1
+         id: download_blob
          with:
            action: download
            local_directory: https://github.com/mquintSN/hello-github-actions
            connection_string: ${{ secrets.CONNECTION_STRING }}
            container_name: states
+       - name:  results
+         run: echo ${{steps.download_blob.outputs}}
+          
