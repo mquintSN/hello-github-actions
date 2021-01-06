@@ -18,6 +18,4 @@ jobs:
            container_name: states
            blob_prefix: us
            output_file: '../../results.json'
-       - name:  results
-         run: echo ${{steps.download_blob.outputs}}
-          
+
