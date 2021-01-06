@@ -6,13 +6,19 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v1
-       - uses: ulaval/azure-blob-copy-action@v1
+       - uses: actions/setup-node@v2
+         with:
+            node-version: '12'
+       - run: npm install
+       - uses: ./blob-fetch
          id: download_blob
          with:
            action: download
-           local_directory: ./results.json
-           connection_string: ${{ secrets.CONNECTION_STRING }}
+           storage_account_name: sleepscience
+           account_access_key: ${{ secrets.ACCOUNT_ACCESS_KEY }}
            container_name: states
+           blob_prefix: us
+           output_file: results.json
        - name:  results
          run: echo ${{steps.download_blob.outputs}}
           

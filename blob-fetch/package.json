@@ -1,0 +1,25 @@
+{
+  "name": "hello-github-actions",
+  "version": "1.0.0",
+  "description": "github actions practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mquintSN/hello-github-actions.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mquintSN/hello-github-actions/issues"
+  },
+  "homepage": "https://github.com/mquintSN/hello-github-actions#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@azure/abort-controller": "^1.0.1",
+    "@azure/storage-blob": "^12.3.0"
+  }
+}
