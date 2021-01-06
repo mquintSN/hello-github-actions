@@ -10,7 +10,7 @@ jobs:
          id: download_blob
          with:
            action: download
-           local_directory: https://github.com/mquintSN/hello-github-actions
+           local_directory: ./results.json
            connection_string: ${{ secrets.CONNECTION_STRING }}
            container_name: states
        - name:  results
