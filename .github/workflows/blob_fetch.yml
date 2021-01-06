@@ -13,7 +13,6 @@ jobs:
        - uses: ./blob-fetch
          id: download_blob
          with:
-           action: download
            storage_account_name: sleepscience
            account_access_key: ${{ secrets.ACCOUNT_ACCESS_KEY }}
            container_name: states
