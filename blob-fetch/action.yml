@@ -1,0 +1,22 @@
+name: 'Get the blob'
+description: 'Get the blob and write to a file'
+inputs:
+  storage_account_name:
+    description: 'SECRET'
+    required: true
+  account_access_key:
+    description: 'SECRET'
+    required: true
+  container_name:
+    description: 'Name of blob storage container'
+    required: true
+  blob_prefix:
+    required: true
+  output_file:
+    required: true
+outputs:
+  success:
+    description: 'If it was successful'
+runs:
+  using: 'node12'
+  main: 'index.js'
