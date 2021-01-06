@@ -11,4 +11,4 @@ jobs:
            action: download
            connection_string: ${{ secrets.CONNECTION_STRING }}
            container_name: states
-           local_directory: ./results.json
+           local_directory: dist
