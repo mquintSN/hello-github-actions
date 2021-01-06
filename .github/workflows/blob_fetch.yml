@@ -9,5 +9,6 @@ jobs:
        - uses: ulaval/azure-blob-copy-action@v1
          with:
            action: download
+           local_directory: ./results  
            connection_string: ${{ secrets.CONNECTION_STRING }}
            container_name: states
