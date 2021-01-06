@@ -16,7 +16,7 @@ const STORAGE_ACCOUNT_NAME = core.getInput('storage_account_name');
 const ACCOUNT_ACCESS_KEY = core.getInput('account_access_key');
 const CONTAINER_NAME = core.getInput('container_name');
 const BLOB_PREFIX = core.getInput('blob_prefix');
-const OUTPUT_FILENAME = core.getInput('storage_account_name');
+const OUTPUT_FILENAME = core.getInput('output_file_name');
 
 const ONE_MINUTE = 60 * 1000;
 
