@@ -9,6 +9,6 @@ jobs:
        - uses: ulaval/azure-blob-copy-action@v1
          with:
            action: download
-           local_directory: ./results  
+           local_directory: /Users/mquint/Downloads 
            connection_string: ${{ secrets.CONNECTION_STRING }}
            container_name: states
