@@ -10,5 +10,5 @@ jobs:
          with:
            action: download
            connection_string: ${{ secrets.CONNECTION_STRING }}
-           container_name: $web
+           container_name: states
            local_directory: ./results.json
