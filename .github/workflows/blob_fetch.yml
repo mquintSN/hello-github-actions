@@ -23,5 +23,14 @@ jobs:
           path: 'blob-fetch/results.json'
           contents: 'testing' #${{steps.download_blob.outputs.success}}
           write-mode: overwrite
-
+       - name: Commit files  # transfer the new html files back into the repository	
+         run: |	
+          git config --local user.name  ${{ github.actor }}	
+          git add blob-fetch/results.json	
+          git commit -m "Updating the json file"	
+       - name: Push changes  # push the output folder to your repo	
+         uses: ad-m/github-push-action@master	
+         with:	
+          github_token: ${{ secrets.TOKEN }}	
+          force: true  
 
