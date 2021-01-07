@@ -4,7 +4,6 @@ const {
 } = require("@azure/storage-blob");
 const { AbortController } = require("@azure/abort-controller");
 const core = require('@actions/core');
-const github = require('@actions/github');
 
 const fs = require("fs");
 
