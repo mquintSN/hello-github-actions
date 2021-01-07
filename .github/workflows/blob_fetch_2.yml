@@ -1,0 +1,29 @@
+name: Download file from azure
+on: [workflow_dispatch, push]
+jobs: 
+  fetch_blob:
+     name: Download file from azure and save to json file
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v1
+       - uses: actions/setup-node@v2
+         with:
+            node-version: '12'
+       - run: npm install
+       - name: Copy files
+         uses: ulaval/azure-blob-copy-action@v1
+         with:
+          action: download
+          connection_string: ${{ secrets.CONNECTION_STRING }}
+          container_name: states
+          local_directory: blob-fetch/results.json
+       - name: Commit file
+         run: |	
+          git config --local user.name  ${{ github.actor }}	
+          git add blob-fetch/results.json	
+          git commit -m "Updating the json file"	
+       - name: Push changes 
+         uses: ad-m/github-push-action@master	
+         with:	
+          github_token: ${{ secrets.TOKEN }}	
+          force: true  
