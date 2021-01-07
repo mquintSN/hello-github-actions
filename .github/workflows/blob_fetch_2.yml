@@ -20,7 +20,7 @@ jobs:
        - name: Commit file
          run: |	
           git config --local user.name  ${{ github.actor }}	
-          git add blob-fetch/results2.json	
+          git add blob-fetch/us_map_data.json	
           git commit -m "Updating the json file"	
        - name: Push changes 
          uses: ad-m/github-push-action@master	
