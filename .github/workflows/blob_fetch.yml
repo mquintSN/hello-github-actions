@@ -20,7 +20,7 @@ jobs:
            output_file: '../../results.json'
        - uses: DamianReeves/write-file-action@v1.0
          with:
-          path: '../../results.json'
+          path: 'blob-fetch/results.json'
           contents: "Hello World!"
           write-mode: overwrite
        - name: Commit files  # transfer the new html files back into the repository
