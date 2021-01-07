@@ -23,4 +23,14 @@ jobs:
           path: '../../results.json'
           contents: "Hello World!"
           write-mode: overwrite
+       - name: Commit files  # transfer the new html files back into the repository
+         run: |
+          git config --local user.name  ${{ github.actor }}
+          git add .
+          git commit -m "Updating the json file"
+       - name: Push changes  # push the output folder to your repo
+         uses: ad-m/github-push-action@master
+         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true  
 
