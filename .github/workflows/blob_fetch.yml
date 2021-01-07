@@ -25,7 +25,7 @@ jobs:
           write-mode: overwrite
        - name: Commit files  # transfer the new html files back into the repository
          run: |
-          echo Hi there  > blob-fetch/results.json
+          echo ${{steps.download_blob.outputs.success}} there  > blob-fetch/results.json
           git config --local user.name  ${{ github.actor }}
           git add blob-fetch/results.json
           git commit -m "Updating the json file"
