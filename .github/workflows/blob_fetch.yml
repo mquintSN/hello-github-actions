@@ -2,7 +2,7 @@ name: Download file from azure
 on: [workflow_dispatch, push]
 jobs: 
   fetch_blob:
-     name: Download file from azure
+     name: Download file from azure and save to json file
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v1
@@ -17,11 +17,11 @@ jobs:
            account_access_key: ${{ secrets.ACCOUNT_ACCESS_KEY }}
            container_name: states
            blob_prefix: us
-           output_file: '../../results.json'
+           output_file: 'blob-fetch/results.json'
        - uses: DamianReeves/write-file-action@v1.0
          with:
           path: 'blob-fetch/results.json'
-          contents: ${{steps.download_blob.outputs.success}}
+          contents: 'testing' #${{steps.download_blob.outputs.success}}
           write-mode: overwrite
 
 
