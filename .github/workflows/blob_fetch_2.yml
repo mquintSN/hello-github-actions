@@ -1,8 +1,8 @@
 name: Download file from azure
-on: [workflow_dispatch, push]
+on: workflow_dispatch
 jobs: 
   fetch_blob:
-     name: Download file from azure and save to json file
+     name: Download from azure, no custom action
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v1
