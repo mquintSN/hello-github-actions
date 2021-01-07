@@ -16,12 +16,12 @@ jobs:
           action: download
           connection_string: ${{ secrets.CONNECTION_STRING }}
           container_name: states
-          local_directory: blob-fetch
+          local_directory: /
        - name: Commit file
          run: |	
           git status
           git config --local user.name  ${{ github.actor }}	
-          git add blob-fetch/us_map_data
+          git add us_map_data
           git commit -m "Save blob to repo"	
        - name: Push changes 
          uses: ad-m/github-push-action@master	
