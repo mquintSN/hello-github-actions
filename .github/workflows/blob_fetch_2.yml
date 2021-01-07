@@ -1,4 +1,4 @@
-name: Download file from azure
+name: Download file from azure 2
 on: workflow_dispatch
 jobs: 
   fetch_blob:
