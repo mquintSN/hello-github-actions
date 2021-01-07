@@ -64,13 +64,14 @@ async function main() {
       downloadResponse.readableStreamBody
   );
   console.log(`SUCCESS: Downloaded content: \n\n---\n\n${downloadedContent}\n\n---\n\n`);
-
-  fs.writeFile(OUTPUT_FILENAME, downloadedContent, (err) => {
+  core.setOutput('success', downloadedContent)
+  /* fs.writeFile(OUTPUT_FILENAME, downloadedContent, (err) => {
     console.log(`attempting to write to "${OUTPUT_FILENAME}"`);
     if (err) throw err;
     console.log(`SUCCESS: Saved blob "${blobItem.name}" to "${OUTPUT_FILENAME}"`);
-    core.setOutput('success', true)
+    
   });
+*/
 }
 
 main()
