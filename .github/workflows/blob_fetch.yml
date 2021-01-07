@@ -21,14 +21,14 @@ jobs:
        - uses: DamianReeves/write-file-action@v1.0
          with:
           path: 'blob-fetch/results.json'
-          contents: 'testing' #${{steps.download_blob.outputs.success}}
+          contents: ${{steps.download_blob.outputs.success}}
           write-mode: overwrite
-       - name: Commit files  # transfer the new html files back into the repository	
+       - name: Commit file
          run: |	
           git config --local user.name  ${{ github.actor }}	
           git add blob-fetch/results.json	
           git commit -m "Updating the json file"	
-       - name: Push changes  # push the output folder to your repo	
+       - name: Push changes 
          uses: ad-m/github-push-action@master	
          with:	
           github_token: ${{ secrets.TOKEN }}	
