@@ -19,8 +19,9 @@ jobs:
           local_directory: blob-fetch
        - name: Commit file
          run: |	
+          git status
           git config --local user.name  ${{ github.actor }}	
-          git add blob-fetch/us_map_data
+          git add .
           git commit -m "Updating the json file"	
        - name: Push changes 
          uses: ad-m/github-push-action@master	
