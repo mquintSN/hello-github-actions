@@ -2,16 +2,14 @@ name: Download file from azure, custom js
 on: workflow_dispatch
 jobs: 
   fetch_blob:
-     name: Download file from azure and save to json file
+     name: Download content from azure and save to json file
      runs-on: ubuntu-latest
      steps:
-       - uses: actions/checkout@v1
+       - uses: actions/checkout@v2
        - uses: actions/setup-node@v2
          with:
             node-version: '12'
-       #- run: npm install
        - uses: ./blob-fetch
-         id: download_blob
          with:
            storage_account_name: ${{ secrets.SN_STORAGE_ACCOUNT_NAME }}
            account_access_key: ${{ secrets.SN_ACCOUNT_ACCESS_KEY }}
@@ -19,7 +17,8 @@ jobs:
            blob_prefix: ${{ secrets.SN_BLOB_PREFIX }}
            output_file: 'blob-fetch/results.json'
        - name: Commit edited json file
-         run: |	
+         run: |
+          git status	
           git config --local user.name  ${{ github.actor }}	
           git add blob-fetch/results.json	
           git commit -m "Updating the json file"	
