@@ -21,7 +21,7 @@ jobs:
           git status	
           git config --local user.name  ${{ github.actor }}	
           git add blob-fetch/results.json	
-          git commit -m "Updating the json file"	
+          git commit -m "Update json file with blob content"	
        - name: Push changes 
          uses: ad-m/github-push-action@master	
          with:	
