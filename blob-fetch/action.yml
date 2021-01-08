@@ -1,17 +1,16 @@
 name: 'Get the blob'
-description: 'Get the blob and write to a file'
+description: 'Fetch content from blob and write to a file'
 inputs:
   storage_account_name:
     required: true
   account_access_key:
     required: true
   container_name:
-    description: 'Name of blob storage container'
     required: true
   blob_prefix:
-    description: 'Beginning of name of blob'
     required: true
   output_file:
+    description: File path
     required: true
 outputs:
   success:
