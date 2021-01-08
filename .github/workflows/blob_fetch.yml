@@ -13,12 +13,12 @@ jobs:
        - uses: ./blob-fetch
          id: download_blob
          with:
-           storage_account_name: sleepscience
-           account_access_key: ${{ secrets.ACCOUNT_ACCESS_KEY }}
-           container_name: states
-           blob_prefix: us
+           storage_account_name: ${{ secrets.SN_STORAGE_ACCOUNT_NAME }}
+           account_access_key: ${{ secrets.SN_ACCOUNT_ACCESS_KEY }}
+           container_name: ${{ secrets.SN_CONTAINER_NAME }}
+           blob_prefix: ${{ secrets.SN_BLOB_PREFIX }}
            output_file: 'blob-fetch/results.json'
-       - name: Commit file
+       - name: Commit edited json file
          run: |	
           git config --local user.name  ${{ github.actor }}	
           git add blob-fetch/results.json	
